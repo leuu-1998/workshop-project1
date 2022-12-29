@@ -14,5 +14,18 @@
 	</header>
 	<div id="home-body">
 		<span>Contenedor div en index</span>
+		<div id="server-data"></div>
 	</div>
+	<script>
+		const serverDiv = document.getElementById("server-data");
+		let serverData = null;
+		fetch('/home-route',{ method: 'GET', mode: 'cors', cache: 'no-cache'})
+		.then((response) => {
+			return response.json();
+		})
+		.then((data) => {
+			serverData = data;
+			serverDiv.innerHTML = serverData.message;
+		});
+	</script>
 </body>
