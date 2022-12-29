@@ -23,6 +23,10 @@ app.get("/", (req, res) => {
 	res.sendFile(join(__dirname, "../public/index.html"));
 });
 
+app.get("/home", (req, res) => {
+	res.sendFile(join(__dirname, "../public/home.html"));
+});
+
 app.get("/home-route", (req, res) => {
 	res.status(200).json({ message: "mensaje durante el evento"});
 });
